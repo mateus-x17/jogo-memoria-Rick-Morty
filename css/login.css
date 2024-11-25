@@ -1,0 +1,59 @@
+/* CONTEINER DE FORM LOGIN */
+.login-form{
+    display: flex; /*permite centralizar os itens do formulario*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /*ocupa 100% da janela*/
+    background-image: linear-gradient(45deg, rgb(148, 146, 146), rgb(189, 186, 186));
+} /*classe mae dos itens do formulario de login*/
+
+/* CABEÇALHO DENTRO DO FORM */
+.login-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+/* IMAGEM E TITULO DO FORM */
+.login-header img{
+    width: 40%; /*100px do espaço da div em que esta contida*/
+}
+.login-header h1{
+    color: #333;
+    font-size: 1em;
+}
+
+/* INPUTS DO FORM */
+.login-input{
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: 100%; /*sempre que possivel ocupa 100% do espaço disponivel na div*/
+    max-width: 300px; /*mas cresce no maximo ate 300px*/
+    padding: 15px;
+}
+
+/* BOTÃO LOGIN */
+button{
+    background-color: #ee665c;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    width: 100%; /*sempre que possivel ocupa 100% do espaço disponivel na div*/
+    max-width: 300px; /*mas cresce no maximo ate 300px*/
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+}/*estilo quando o botão estiver habilitado*/
+
+button:disabled{
+    /*acessamos a pseudo classe desable para qunado estiver desabilitado*/
+    background-color: #eee;
+    color: rgb(124, 118, 118);
+    cursor: auto;
+}/*estilo para quanod o botão estiver desabilitado*/

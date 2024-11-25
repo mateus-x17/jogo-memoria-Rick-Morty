@@ -1,0 +1,112 @@
+main{
+    width: 100%; /*ocupa toda largura do bloco em que esta, no caso a tag body*/
+    min-height: 100vh; /*ocupa toda altura da view port*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 50px;
+    /* padding: 20px 20px 50px; */
+    background-image: url('../imgs/bg.jpg');
+    background-size: cover;
+    background-position: center;
+}/*div com todo o conteudo do site*/
+
+/* CABEÇALHO */
+header{
+    border: 2px solid #39813a;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 850px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    /*fundo*/
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+#player-div{
+    border: 2px solid rgb(19, 146, 2);
+    border-radius: 10px;
+    background-color: #67b369b6;
+    padding: 15px 50px;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+#timer-div{
+    border: 2px solid rgb(19, 146, 2);
+    border-radius: 10px;
+    background-color: #67b369b6;
+    padding: 15px 70px;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+/* DIV MAÕ DOS CARDS */
+.grid{
+    display: grid;
+    width: 85%;
+    max-width: 650px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+    /* fundo */
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 15px 15px rgba(86, 238, 150, 0.404);
+    margin: 0 auto; /*automatica no left/right*/
+    /* definir linhas e colunas do grid */
+    grid-template-columns: repeat(5, 1fr); /*nmr de colunas (5) e tamanhos das respctivas (1fr)*/
+    gap: 15px;
+}
+
+/* DIV COM CARD */
+.card{
+    aspect-ratio: 3/4; /*define a proporção da largura e altura da carta*/
+    width: 100%;
+    /* height: 200px; */
+    background-color: #333;
+    border-radius: 5px;
+    position: relative; /*permite ajustar a posição da frente e costas das cartas*/
+    transition: all 400ms ease-in; /*controla a transição de rotação das cartas para mostrar as costas*/
+    transform-style: preserve-3d; /*torna a perpectiva da carta 3d para que o as costas não fique invertida ao realizar animação de rotação*/
+}
+
+/* FRENTE e BACK DA CARTA */
+.face{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #39813a;
+    border-radius: 5px;
+    position: absolute; /*permite ajustra a posição das costas e frente das cartas em relação a div que as contem - fazendoas se sobrepor*/
+    background-size: cover;
+    background-position: center;
+    transition: all 400ms ease; /*transição para ficar cinza ao acertar */
+} /*classe comum a frente e back da carta*/
+
+.front{
+    /* background-color: red; */
+    /*background-image: url('../imgs/beth.png'); - a img deve ser dinamica, substituida no js*/ /*imagem da frente da carta*/
+    transform: rotateY(180deg); /*como ao rotacionar a carta a imagem fica invertida, aqui invertemos novamente somente a frente da carta, fazendo-a voltar ao normal*/
+}/*frente com a imagem do jogo da memoria*/
+.back{
+    background-image: url('../imgs/back.png');
+    backface-visibility: hidden; /*esconde as costas da carta*/
+}/*costas da corta que tem uma imagem padrão*/
+
+/*.card:hover{
+    transform: rotateY(180deg);
+}*/ /*animação com cursor em cima - sera alterada para o click no js*/
+
+/* REVELAR CARTA PARA EXIBIR AO CLICAR */
+.revel-Card{
+    transform: rotateY(180deg);
+} /*classe aplicada qunado se clica em uma carta revelando seu front com a img*/
+
+/* ESTILO PARA CARTA ACERTADA */
+.desable-card{
+    filter: saturate(0); /*diminui a saturação para deixar preto e branco*/
+    opacity: 0.5;
+}
